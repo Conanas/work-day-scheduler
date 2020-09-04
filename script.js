@@ -1,7 +1,22 @@
 var DayPlanner = {
     slots: ["9AM", "10AM", "11AM", "12AM", "1AM", "2AM", "3AM", "4AM", "5AM"],
     addButtonText: "Add",
+    currentTime: moment().format("h:mm a"),
+    day: moment().format("dddd"),
+    date: moment().format("Do"),
+    month: moment().format("MMMM"),
+    year: moment().format("YYYY"),
+
+    // display the date in the header
+    displayDate: function() {
+        var dateDisplay = $(".date-display");
+        dateDisplay.text(`${this.day} ${this.date} ${this.month} ${this.year}`);
+    },
+
+    // create the time slots layout
     createLayout: function() {
+
+        this.displayDate();
 
         var layoutDisplay = $("#layout-display");
         var thisAddButtonText = this.addButtonText;
