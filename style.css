@@ -62,6 +62,14 @@ header h1 {
 }
 
 
+/* footer */
+
+footer {
+    text-align: center;
+    margin: 20px;
+}
+
+
 /* media queries */
 
 
