@@ -78,9 +78,15 @@ var DayPlanner = {
             // create button for slot button column
             var newSlotButton = $("<button>");
             newSlotButton.addClass("slot-button");
-            newSlotButton.attr("id", `slot-button-${slot}`);
+            newSlotButton.attr({
+                id: `slot-button-${slot}`,
+                value: thisHours[hour]
+            });
             newSlotButton.text(thisAddButtonText);
             newSlotButtonCol.append(newSlotButton);
+
+            // click event listener for add button
+            newSlotButton.on("click", DayPlanner.saveEvent);
         });
     },
 
@@ -93,6 +99,11 @@ var DayPlanner = {
         } else {
             return "lightgreen";
         }
+    },
+
+    // save event button function
+    saveEvent: function(event) {
+        console.log(event.target.value)
     }
 }
 
