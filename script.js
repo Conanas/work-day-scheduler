@@ -10,41 +10,43 @@ var DayPlanner = {
 
             // create slot row
             var newSlotRow = $("<div>");
-            newSlotRow.addClass("row");
-            newSlotRow.addClass("slot");
+            newSlotRow.addClass("row no-gutters slot");
             layoutDisplay.append(newSlotRow);
 
             // create slot time column
             var newSlotTimeCol = $("<div>");
-            newSlotTimeCol.addClass("col-xs-2");
-            newSlotTimeCol.addClass("slot-time");
+            newSlotTimeCol.addClass("col-3 col-sm-2 slot-time");
             newSlotRow.append(newSlotTimeCol);
 
             // create label for slot time column
             var newSlotLabel = $("<label>");
-            newSlotLabel.attr("for", `slot-textarea-${slot}`);
-            newSlotLabel.attr("id", `slot-label-${slot}`);
             newSlotLabel.addClass("slot-label");
+            newSlotLabel.attr({
+                for: `slot-textarea-${slot}`,
+                id: `slot-label-${slot}`
+            });
             newSlotLabel.text(slot);
             newSlotTimeCol.append(newSlotLabel);
 
             // create slot textarea column
             var newSlotTextareaCol = $("<div>");
-            newSlotTextareaCol.addClass("col-xs-8");
-            newSlotTextareaCol.addClass("slot-input");
+            newSlotTextareaCol.addClass("col-7 slot-input");
             newSlotRow.append(newSlotTextareaCol);
 
             // create textarea for slot textarea column
             var newSlotTextarea = $("<textarea>");
-            newSlotTextarea.attr("name", `slot-textarea-${slot}`);
-            newSlotTextarea.attr("id", `slot-textarea-${slot}`);
             newSlotTextarea.addClass("slot-textarea");
+            newSlotTextarea.attr({
+                name: `slot-textarea-${slot}`,
+                id: `slot-textarea-${slot}`,
+                cols: "30",
+                rows: "3"
+            });
             newSlotTextareaCol.append(newSlotTextarea);
 
             // create slot button colum
             var newSlotButtonCol = $("<div>");
-            newSlotButtonCol.addClass("col-xs-2");
-            newSlotButtonCol.addClass("slot-done");
+            newSlotButtonCol.addClass("col-2 slot-done");
             newSlotRow.append(newSlotButtonCol);
 
             // create button for slot button column
