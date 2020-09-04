@@ -1,11 +1,14 @@
 var DayPlanner = {
-    slots: ["9AM", "10AM", "11AM", "12AM", "1AM", "2AM", "3AM", "4AM", "5AM"],
+    slots: ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"],
     hours: [9, 10, 11, 12, 13, 14, 15, 16, 17],
     addButtonText: "Add",
     day: moment().format("dddd"),
     date: moment().format("Do"),
     month: moment().format("MMMM"),
     year: moment().format("YYYY"),
+
+    // don't allow to save in the past
+    savedEvents: [],
 
     // display the date in the header
     displayDate: function() {
@@ -103,7 +106,7 @@ var DayPlanner = {
 
     // save event button function
     saveEvent: function(event) {
-        console.log(event.target.value)
+        console.log(event.target.value);
     }
 }
 
