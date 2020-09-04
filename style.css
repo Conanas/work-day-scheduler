@@ -5,3 +5,41 @@ header {
 header h1 {
     margin: 40px;
 }
+
+
+/* display of the day planner  */
+
+
+/* #layout-display {} */
+
+
+/* each time slot */
+
+
+/* .time-slot {} */
+
+
+/* time display of each time slot */
+
+
+/* .time-display {
+    font-size: 16px;
+    text-align: center;
+    width: 64px;
+    height: 100%;
+    padding: 10px;
+    margin: 0px;
+    border: 1px solid black;
+} */
+
+
+/* textarea of each time slot */
+
+
+/* .time-slot-textarea {} */
+
+
+/* button of each time slot */
+
+
+/* .add-event-button {} */
