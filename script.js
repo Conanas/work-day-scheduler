@@ -11,7 +11,7 @@ var DayPlanner = {
             // create slot row
             var newSlotRow = $("<div>");
             newSlotRow.addClass("row");
-            newSlotRow.addClass(`slot-${slot}`);
+            newSlotRow.addClass("slot");
             layoutDisplay.append(newSlotRow);
 
             // create slot time column
@@ -23,6 +23,7 @@ var DayPlanner = {
             // create label for slot time column
             var newSlotLabel = $("<label>");
             newSlotLabel.attr("for", `slot-textarea-${slot}`);
+            newSlotLabel.attr("id", `slot-label-${slot}`);
             newSlotLabel.addClass("slot-label");
             newSlotLabel.text(slot);
             newSlotTimeCol.append(newSlotLabel);
@@ -30,19 +31,20 @@ var DayPlanner = {
             // create slot textarea column
             var newSlotTextareaCol = $("<div>");
             newSlotTextareaCol.addClass("col-xs-8");
-            newSlotTextareaCol.addClass("slot-textarea");
+            newSlotTextareaCol.addClass("slot-input");
             newSlotRow.append(newSlotTextareaCol);
 
             // create textarea for slot textarea column
             var newSlotTextarea = $("<textarea>");
             newSlotTextarea.attr("name", `slot-textarea-${slot}`);
             newSlotTextarea.attr("id", `slot-textarea-${slot}`);
+            newSlotTextarea.addClass("slot-textarea");
             newSlotTextareaCol.append(newSlotTextarea);
 
             // create slot button colum
             var newSlotButtonCol = $("<div>");
             newSlotButtonCol.addClass("col-xs-2");
-            newSlotButtonCol.addClass("slot-button");
+            newSlotButtonCol.addClass("slot-done");
             newSlotRow.append(newSlotButtonCol);
 
             // create button for slot button column
