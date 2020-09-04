@@ -2,7 +2,6 @@ var DayPlanner = {
     slots: ["9AM", "10AM", "11AM", "12AM", "1AM", "2AM", "3AM", "4AM", "5AM"],
     hours: [9, 10, 11, 12, 13, 14, 15, 16, 17],
     addButtonText: "Add",
-    currentTime: moment().format("h:mm a"),
     day: moment().format("dddd"),
     date: moment().format("Do"),
     month: moment().format("MMMM"),
@@ -23,7 +22,7 @@ var DayPlanner = {
         // variables
         var layoutDisplay = $("#layout-display");
         var thisHours = this.hours;
-        var thisBackgroundColor = "";
+        var backgroundColor = "";
         var thisAddButtonText = this.addButtonText;
 
         // for each time slot create planner elements
@@ -58,8 +57,8 @@ var DayPlanner = {
             var newSlotTextarea = $("<textarea>");
             newSlotTextarea.addClass("slot-textarea");
 
-            // change colour of textarea depending on time
-            backgroundColor = DayPlanner.checkPastPresentFuture(hour);
+            // assign a background color for textarea depending on time of day
+            backgroundColor = DayPlanner.backgroundColor(hour);
 
             newSlotTextarea.attr({
                 name: `slot-textarea-${slot}`,
@@ -85,14 +84,14 @@ var DayPlanner = {
         });
     },
 
-    // check if textarea is in the past present or future and change background color
-    checkPastPresentFuture: function(hour) {
+    // check if textarea is in the past present or future and return background color
+    backgroundColor: function(hour) {
         if (moment().isAfter(moment().hours(this.hours[hour]))) {
-            return "grey";
+            return "lightgrey";
         } else if (moment().isSame(moment().hours(this.hours[hour]))) {
-            return "red";
+            return "indianred";
         } else {
-            return "blue";
+            return "lightgreen";
         }
     }
 }
