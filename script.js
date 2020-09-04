@@ -30,7 +30,7 @@ var DayPlanner = {
 
             // create slot textarea column
             var newSlotTextareaCol = $("<div>");
-            newSlotTextareaCol.addClass("col-7 slot-input");
+            newSlotTextareaCol.addClass("col-6 col-sm-8 slot-input");
             newSlotRow.append(newSlotTextareaCol);
 
             // create textarea for slot textarea column
@@ -46,7 +46,7 @@ var DayPlanner = {
 
             // create slot button colum
             var newSlotButtonCol = $("<div>");
-            newSlotButtonCol.addClass("col-2 slot-done");
+            newSlotButtonCol.addClass("col-3 col-sm-2 slot-done");
             newSlotRow.append(newSlotButtonCol);
 
             // create button for slot button column
