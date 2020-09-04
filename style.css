@@ -9,20 +9,22 @@ header h1 {
 
 /* display of the day planner  */
 
+#layout-display {}
 
-/* #layout-display {} */
+
+/* each slot row */
+
+.slot {}
 
 
 /* each time slot */
 
-
-/* .time-slot {} */
+.slot-time {}
 
 
 /* time display of each time slot */
 
-
-/* .time-display {
+.slot-label {
     font-size: 16px;
     text-align: center;
     width: 64px;
@@ -30,16 +32,24 @@ header h1 {
     padding: 10px;
     margin: 0px;
     border: 1px solid black;
-} */
+}
+
+
+/* each slot input */
+
+.slot-input {}
 
 
 /* textarea of each time slot */
 
+.slot-textarea {}
 
-/* .time-slot-textarea {} */
+
+/* each slot done */
+
+.slot-done {}
 
 
 /* button of each time slot */
 
-
-/* .add-event-button {} */
+.slot-button {}
