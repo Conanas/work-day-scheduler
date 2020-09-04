@@ -1,37 +1,56 @@
 var DayPlanner = {
-    timeSlots: ["9AM", "10AM", "11AM", "12AM", "1AM", "2AM", "3AM", "4AM", "5AM"],
+    slots: ["9AM", "10AM", "11AM", "12AM", "1AM", "2AM", "3AM", "4AM", "5AM"],
     addButtonText: "Add",
     createLayout: function() {
 
         var layoutDisplay = $("#layout-display");
         var thisAddButtonText = this.addButtonText;
 
-        this.timeSlots.forEach(function(timeSlot) {
+        this.slots.forEach(function(slot) {
 
-            // create timeslot div
-            var newTimeSlot = $("<div>");
-            newTimeSlot.addClass("time-slot");
+            // create slot row
+            var newSlotRow = $("<div>");
+            newSlotRow.addClass("row");
+            newSlotRow.addClass(`slot-${slot}`);
+            layoutDisplay.append(newSlotRow);
 
-            // create time display
-            var newTime = $("<div>");
-            newTime.addClass("time-display");
-            newTime.text(timeSlot);
-            newTimeSlot.append(newTime);
+            // create slot time column
+            var newSlotTimeCol = $("<div>");
+            newSlotTimeCol.addClass("col-xs-2");
+            newSlotTimeCol.addClass("slot-time");
+            newSlotRow.append(newSlotTimeCol);
 
-            // create text area
-            var newTextArea = $("<textarea>");
-            newTextArea.attr("name", "event-textarea");
-            newTextArea.attr("id", `${timeSlot}-textarea`);
-            newTimeSlot.append(newTextArea);
+            // create label for slot time column
+            var newSlotLabel = $("<label>");
+            newSlotLabel.attr("for", `slot-textarea-${slot}`);
+            newSlotLabel.addClass("slot-label");
+            newSlotLabel.text(slot);
+            newSlotTimeCol.append(newSlotLabel);
 
-            // create add event button
-            var newAddButton = $("<button>");
-            newAddButton.addClass("add-event-button");
-            newAddButton.text(thisAddButtonText);
-            newTimeSlot.append(newAddButton);
+            // create slot textarea column
+            var newSlotTextareaCol = $("<div>");
+            newSlotTextareaCol.addClass("col-xs-8");
+            newSlotTextareaCol.addClass("slot-textarea");
+            newSlotRow.append(newSlotTextareaCol);
 
-            // append timeSlot div to layout display
-            layoutDisplay.append(newTimeSlot);
+            // create textarea for slot textarea column
+            var newSlotTextarea = $("<textarea>");
+            newSlotTextarea.attr("name", `slot-textarea-${slot}`);
+            newSlotTextarea.attr("id", `slot-textarea-${slot}`);
+            newSlotTextareaCol.append(newSlotTextarea);
+
+            // create slot button colum
+            var newSlotButtonCol = $("<div>");
+            newSlotButtonCol.addClass("col-xs-2");
+            newSlotButtonCol.addClass("slot-button");
+            newSlotRow.append(newSlotButtonCol);
+
+            // create button for slot button column
+            var newSlotButton = $("<button>");
+            newSlotButton.addClass("slot-button");
+            newSlotButton.attr("id", `slot-button-${slot}`);
+            newSlotButton.text(thisAddButtonText);
+            newSlotButtonCol.append(newSlotButton);
         });
     },
 }
