@@ -44,7 +44,9 @@ header h1 {
 
 /* each slot input */
 
-.slot-input {}
+.slot-input {
+    /* background-color: ; */
+}
 
 
 /* textarea of each time slot */
@@ -53,6 +55,12 @@ header h1 {
     height: 100%;
     width: 100%;
     resize: none;
+}
+
+.slot-textarea:focus {
+    border-width: 4px;
+    border-style: solid;
+    border-color: cyan;
 }
 
 
