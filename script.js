@@ -1,5 +1,6 @@
 var DayPlanner = {
     slots: ["9AM", "10AM", "11AM", "12AM", "1AM", "2AM", "3AM", "4AM", "5AM"],
+    hours: [9, 10, 11, 12, 13, 14, 15, 16, 17],
     addButtonText: "Add",
     currentTime: moment().format("h:mm a"),
     day: moment().format("dddd"),
@@ -16,12 +17,17 @@ var DayPlanner = {
     // create the time slots layout
     createLayout: function() {
 
+        // display todays date
         this.displayDate();
 
+        // variables
         var layoutDisplay = $("#layout-display");
+        var thisHours = this.hours;
+        var thisBackgroundColor = "";
         var thisAddButtonText = this.addButtonText;
 
-        this.slots.forEach(function(slot) {
+        // for each time slot create planner elements
+        this.slots.forEach(function(slot, hour) {
 
             // create slot row
             var newSlotRow = $("<div>");
@@ -51,11 +57,17 @@ var DayPlanner = {
             // create textarea for slot textarea column
             var newSlotTextarea = $("<textarea>");
             newSlotTextarea.addClass("slot-textarea");
+
+            // change colour of textarea depending on time
+            backgroundColor = DayPlanner.checkPastPresentFuture(hour);
+
             newSlotTextarea.attr({
                 name: `slot-textarea-${slot}`,
                 id: `slot-textarea-${slot}`,
                 cols: "30",
-                rows: "3"
+                rows: "3",
+                value: thisHours[hour],
+                style: `background-color: ${backgroundColor};`
             });
             newSlotTextareaCol.append(newSlotTextarea);
 
@@ -72,6 +84,17 @@ var DayPlanner = {
             newSlotButtonCol.append(newSlotButton);
         });
     },
+
+    // check if textarea is in the past present or future and change background color
+    checkPastPresentFuture: function(hour) {
+        if (moment().isAfter(moment().hours(this.hours[hour]))) {
+            return "grey";
+        } else if (moment().isSame(moment().hours(this.hours[hour]))) {
+            return "red";
+        } else {
+            return "blue";
+        }
+    }
 }
 
 DayPlanner.createLayout();
