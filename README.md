@@ -2,7 +2,11 @@
 
 ## Introduction
 
-A dynamic and responsive scheduler to help plan out the day of work ahead. Displays if the timeslots are in the past, present or future. Tasks can be added to each time slot and saved to localStorage.
+A dynamic and responsive daily planner to help employees manage their time effectively during the work day.
+
+## Description
+
+The current day is displayed at the top of the planner using moment.js. As the user scrolls down they are presented with time blocks that are colour coded depending on whether they are in the past, future or present. Users can click into each timeblock and enter an important event. When the add button is clicked for that time block then the event is saved in localStorage for when the page is refreshed or browser is restarted.
 
 ## Deployed Link
 
