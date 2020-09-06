@@ -1,5 +1,7 @@
 header {
     text-align: center;
+    background-color: black;
+    color: white;
 }
 
 header h1 {
@@ -15,19 +17,11 @@ header h1 {
 }
 
 
-/* display of the day planner  */
+/* main */
 
-#layout-display {}
-
-
-/* each slot row */
-
-.slot {}
-
-
-/* each time slot */
-
-.slot-time {}
+main {
+    padding-bottom: 80px;
+}
 
 
 /* time display of each time slot */
@@ -39,13 +33,6 @@ header h1 {
     height: 100%;
     padding: 10px;
     border: 1px solid black;
-}
-
-
-/* each slot input */
-
-.slot-input {
-    /* background-color: ; */
 }
 
 
@@ -64,11 +51,6 @@ header h1 {
 }
 
 
-/* each slot done */
-
-.slot-done {}
-
-
 /* button of each time slot */
 
 .slot-button {
@@ -77,34 +59,3 @@ header h1 {
     width: 100%;
     background-color: lightblue;
 }
-
-
-/* footer */
-
-footer {
-    text-align: center;
-    margin: 20px;
-}
-
-
-/* media queries */
-
-
-/* Small devices (landscape phones, 576px and up) */
-
-@media (min-width: 576px) {}
-
-
-/* Medium devices (tablets, 768px and up) */
-
-@media (min-width: 768px) {}
-
-
-/* Large devices (desktops, 992px and up) */
-
-@media (min-width: 992px) {}
-
-
-/* Extra large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {}
