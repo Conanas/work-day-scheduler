@@ -53,7 +53,7 @@ var DayPlanner = {
         } else if (moment().isSame(moment().hours(this.Slots[i].slotInt))) {
 
             // if current time is before the time slot
-            return "indianred";
+            return "#ff8c8c";
 
         } else {
 
@@ -109,7 +109,7 @@ var DayPlanner = {
 
             // create slot time column
             var newSlotTimeCol = $("<div>");
-            newSlotTimeCol.addClass("col-3 col-sm-2 slot-time");
+            newSlotTimeCol.addClass("col-3 col-sm-2 col-lg-1 slot-time");
             newSlotRow.append(newSlotTimeCol);
 
             // create label for slot time column
@@ -124,7 +124,7 @@ var DayPlanner = {
 
             // create slot textarea column
             var newSlotTextareaCol = $("<div>");
-            newSlotTextareaCol.addClass("col-6 col-sm-8 slot-input");
+            newSlotTextareaCol.addClass("col-6 col-sm-8 col-lg-10 slot-input");
             newSlotRow.append(newSlotTextareaCol);
 
             // assign a background color for textarea depending on time of day
@@ -146,7 +146,7 @@ var DayPlanner = {
 
             // create slot button colum
             var newSlotButtonCol = $("<div>");
-            newSlotButtonCol.addClass("col-3 col-sm-2 slot-done");
+            newSlotButtonCol.addClass("col-3 col-sm-2 col-lg-1 slot-done");
             newSlotRow.append(newSlotButtonCol);
 
             // create button for slot button column
