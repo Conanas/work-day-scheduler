@@ -28,15 +28,11 @@ var DayPlanner = {
 
     // check if new day
     checkNewDay: function() {
-
         // new day starts at 9am
         if (moment().isAfter(moment().hour(9))) {
-
             // if not new day then load Slots
             this.loadEvents();
-
         } else {
-
             // if new day then overwrite Slots
             localStorage.setItem("dayPlannerEvents", JSON.stringify(DayPlanner.Slots));
         }
@@ -44,43 +40,30 @@ var DayPlanner = {
 
     // check if textarea is in the past present or future and return background color
     backgroundColor: function(i) {
-
         if (moment().isAfter(moment().hours(this.Slots[i].slotInt))) {
-
             // if current time is after the time slot
             return "lightgrey";
-
         } else if (moment().isSame(moment().hours(this.Slots[i].slotInt))) {
-
             // if current time is before the time slot
             return "#ff8c8c";
-
         } else {
-
             // else current time is the time slot
             return "lightgreen";
-
         }
     },
 
     // save event button function
     saveEvent: function(event) {
-
         // get the value of the event target
         var hour = event.target.value;
-
         // change to 24 hour time starting at 9am
         var index = hour - 9;
-
         // get value of textarea associated with the hour
         var slotValue = $(`#slot-textarea-${hour}`).val();
-
         // save to Slots object
         DayPlanner.Slots[index].slotEvent = slotValue;
-
         // save Slots to localStorage
         localStorage.setItem("dayPlannerEvents", JSON.stringify(DayPlanner.Slots));
-
     },
 
     // load events into DayPlanner savedEvents array
