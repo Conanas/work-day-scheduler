@@ -29,7 +29,7 @@ var DayPlanner = {
         var thisAddButtonText = this.addButtonText;
 
         // for each time slot create planner elements
-        this.slots.forEach(function(slot, hour) {
+        for (var i = 0; i < this.slots.length; i++) {
 
             // create slot row
             var newSlotRow = $("<div>");
@@ -45,10 +45,10 @@ var DayPlanner = {
             var newSlotLabel = $("<label>");
             newSlotLabel.addClass("slot-label");
             newSlotLabel.attr({
-                for: `slot-textarea-${slot}`,
-                id: `slot-label-${slot}`
+                for: `slot-textarea-${this.slots[i]}`,
+                id: `slot-label-${this.slots[i]}`
             });
-            newSlotLabel.text(slot);
+            newSlotLabel.text(this.slots[i]);
             newSlotTimeCol.append(newSlotLabel);
 
             // create slot textarea column
@@ -61,14 +61,14 @@ var DayPlanner = {
             newSlotTextarea.addClass("slot-textarea");
 
             // assign a background color for textarea depending on time of day
-            backgroundColor = DayPlanner.backgroundColor(hour);
+            backgroundColor = DayPlanner.backgroundColor(i);
 
             newSlotTextarea.attr({
-                name: `slot-textarea-${slot}`,
-                id: `slot-textarea-${slot}`,
+                name: `slot-textarea-${this.slots[i]}`,
+                id: `slot-textarea-${this.hours[i]}`,
                 cols: "30",
                 rows: "3",
-                value: thisHours[hour],
+                value: this.hours[i],
                 style: `background-color: ${backgroundColor};`
             });
             newSlotTextareaCol.append(newSlotTextarea);
@@ -82,15 +82,17 @@ var DayPlanner = {
             var newSlotButton = $("<button>");
             newSlotButton.addClass("slot-button");
             newSlotButton.attr({
-                id: `slot-button-${slot}`,
-                value: thisHours[hour]
+                id: `slot-button-${this.slots[i]}`,
+                value: this.hours[i]
             });
             newSlotButton.text(thisAddButtonText);
             newSlotButtonCol.append(newSlotButton);
 
             // click event listener for add button
-            newSlotButton.on("click", DayPlanner.saveEvent);
-        });
+            newSlotButton.on("click", this.saveEvent);
+
+        }
+
     },
 
     // check if textarea is in the past present or future and return background color
@@ -106,7 +108,21 @@ var DayPlanner = {
 
     // save event button function
     saveEvent: function(event) {
-        console.log(event.target.value);
+
+        var hour = event.target.value;
+        var slotValue = $(`#slot-textarea-${hour}`).val();
+        var Event = { eventHour: hour, eventSlotValue: slotValue };
+
+        // this.savedEvents.push(Event);
+
+        console.log(hour);
+        console.log(slotValue);
+        console.log(Event);
+        console.log(DayPlanner.savedEvents);
+        console.log(DayPlanner.slots);
+
+        // this.savedEvents.push({ hour, $(".slot-textarea").val() });
+
     }
 }
 
