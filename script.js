@@ -83,7 +83,7 @@ var DayPlanner = {
         var thisAddButtonText = this.addButtonText;
 
         // for each time slot create planner elements
-        for (var i = 0; i < this.Slots.length; i++) {
+        for (var i = 0; i < DayPlanner.Slots.length; i++) {
 
             // create slot row
             var newSlotRow = $("<div>");
