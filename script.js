@@ -68,7 +68,11 @@ var DayPlanner = {
 
     // load events into DayPlanner savedEvents array
     loadEvents: function() {
-        this.Slots = JSON.parse(localStorage.getItem("dayPlannerEvents"));
+        // check if localStorage exists
+        if (localStorage.getItem("dayPlannerEvents") !== null) {
+            // if exists
+            this.Slots = JSON.parse(localStorage.getItem("dayPlannerEvents"));
+        }
     },
 
     // create the time slots layout
@@ -83,7 +87,7 @@ var DayPlanner = {
         var thisAddButtonText = this.addButtonText;
 
         // for each time slot create planner elements
-        for (var i = 0; i < DayPlanner.Slots.length; i++) {
+        for (var i = 0; i < this.Slots.length; i++) {
 
             // create slot row
             var newSlotRow = $("<div>");
