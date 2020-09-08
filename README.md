@@ -14,8 +14,5 @@ https://conanas.github.io/work-day-scheduler/
 
 ## Screenshot
 
-<<<<<<< HEAD
 ![Work Day Scheduler Screenshot](./screenshots/work-day-scheduler-screenshot.png "Work Day Scheduler Screenshot")
-=======
-![Work Day Scheduler Screenshot](./screenshots/work-day-scheduler-screenshot.png "Work Day Scheduler Screenshot")
->>>>>>> c1a646a27edcd737fc71e8ff2fecc7c175fc8e1c
+
