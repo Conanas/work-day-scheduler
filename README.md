@@ -14,4 +14,4 @@ https://conanas.github.io/work-day-scheduler/
 
 ## Screenshot
 
-![Alt text](screenshots\work-day-scheduler-screenshot.png "Work Day Scheduler Screenshot")
+![Alt text](.\screenshots\work-day-scheduler-screenshot.png "Work Day Scheduler Screenshot")
